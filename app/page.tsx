@@ -1,4 +1,6 @@
 import { Navbar } from "@/components/Navbar"
+import { MidContent } from "@/components/MidContent"
+import { MailInput } from "@/components/MailInput"
 export default function Home(){
     return (
         <div 
@@ -9,6 +11,8 @@ export default function Home(){
             }}
         >
             <Navbar />
+            <MidContent />
+            <MailInput />
             <div className="text-white p-8">
                
             </div>
