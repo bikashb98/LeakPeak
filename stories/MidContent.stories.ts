@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MidContent } from '@/components/MidContent';
 
 const meta = {
-    title: 'Example/MidContent',
+    title: 'Components/MidContent',
     component: MidContent,
 }satisfies Meta<typeof MidContent>;
 
