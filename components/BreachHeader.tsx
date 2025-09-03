@@ -1,6 +1,6 @@
 import { BellIcon } from "@heroicons/react/24/outline"
 import { Button } from "./ui/button"
-export function BreachHeader() {
+export function BreachHeader(total : {total:number}) {
     return (
         <div className="flex flex-col justify-center max-w-7xl font-headland mx-auto">
             <div className="flex justify-center text-2xl font-extrabold text-slate-50">
@@ -11,7 +11,7 @@ export function BreachHeader() {
             </div>
             <div className="flex flex-col border-2 my-4 justify-center rounded h-50 border-red-700 bg-red-300/45">
                 <div className="flex justify-center font-extrabold text-3xl text-red-500/75">
-                    9
+                    total
                 </div>
                 <div className="flex justify-center py-4 font-extrabold text-3xl text-red-500/75">
                     Data Breaches
