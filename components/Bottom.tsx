@@ -1,19 +1,38 @@
+import { useEffect, useState } from "react";
 import { BreachHeader } from "./BreachHeader"
 import { NotBreached } from "./NotBreached";
 
 interface BottomProps {
-    showBreachHeader?: boolean;
-    showNotBreached?: boolean;
+    breach: any;
+    hasSearched: boolean;
 }
 
-export function Bottom({ showBreachHeader = false, showNotBreached = false }: BottomProps) {
-    return (
+export function Bottom({ breach, hasSearched }: BottomProps) {
+    const [showBreachHeader, setShowBreachHeader] = useState(false);
+    const [showNotBreached, setShowNotBreached] = useState(false);
 
+    useEffect(() => {
+        if (hasSearched) {
+            if (breach && breach.length > 0) {
+                setShowBreachHeader(true);
+                setShowNotBreached(false);
+            } else {
+                setShowBreachHeader(false);
+                setShowNotBreached(true);
+            }
+        } else {
+            // Hide both if no search has been performed yet
+            setShowBreachHeader(false);
+            setShowNotBreached(false);
+        }
+    }, [breach, hasSearched]);
+
+    return (
         <div className="my-25 py-4 max-w-7xl mx-auto font-headland"> 
             {/* Breach Header Section - Conditionally visible */}
             {showBreachHeader && (
                 <div className="w-full">
-                    <BreachHeader total={903} />
+                    <BreachHeader total={breach.length} />
                 </div>
             )}
             {showNotBreached && (

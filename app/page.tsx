@@ -5,7 +5,7 @@ import { MailInput } from "@/components/MailInput"
 import {Bottom} from "@/components/Bottom"
 import { useBreach } from "../app/hooks/breach";
 export default function Home(){
-    const {breach, checkBreach} = useBreach();
+    const {breach, checkBreach, hasSearched} = useBreach();
     return (
         <div 
             className="min-h-screen py-4"
@@ -17,7 +17,7 @@ export default function Home(){
             <Navbar />
             <MidContent />
             <MailInput onCheckBreach={checkBreach} />
-            <Bottom />
+            <Bottom breach={breach} hasSearched={hasSearched}/>
             <div className="text-white p-8">
                
             </div>
