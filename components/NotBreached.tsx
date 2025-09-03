@@ -17,7 +17,7 @@ export function NotBreached () {
                     Data Breaches
                 </div>
                 <div className="flex justify-center">
-                    Good news — no breach found! This email address wasn't found in any of the data breaches loaded into Have I Been Pwned. That's great news!.
+                    Good news — no breach found! This email address wasn&apos;t found in any of the data breaches loaded into Have I Been Pwned. That&apos;s great news!.
                 </div>
             </div>
             <div className="flex my-4 border-2 border-slate-300 h-25 rounded py-4 items-center mb-25">

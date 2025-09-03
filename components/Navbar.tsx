@@ -16,7 +16,7 @@ export function Navbar () {
                     <Image className='scale-170' src={logo} alt="Logo" width={80} height={80} />
                 </div>
                 <div className="flex items-center justify-between p-4 font-bold text-slate-300 w-100">
-                    <span className='hover:text-slate-400 cursor-pointer'>Who's Been Leaked</span>
+                    <span className='hover:text-slate-400 cursor-pointer'>Who&apos;s Been Leaked</span>
                     <span className='hover:text-slate-400 cursor-pointer'>Notify Me</span>
                     <span className='hover:text-slate-400 cursor-pointer'>About</span>
                 </div>

@@ -1,5 +1,13 @@
 
-export function DateLine({ breach }: { breach: any }) {
+interface Breach {
+    breach: string;
+    logo: string;
+    details: string;
+    xposed_data: string;
+    xposed_date: string;
+}
+
+export function DateLine({ breach }: { breach: Breach }) {
     return (
         <div className="flex w-full justify-center h-150  relative">
             <div className="h-full border-r border-blue-800 absolute  "></div>

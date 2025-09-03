@@ -1,5 +1,14 @@
 import Image from "next/image"
-export function Info ({breach}: { breach: any }) {
+
+interface Breach {
+    breach: string;
+    logo: string;
+    details: string;
+    xposed_data: string;
+    xposed_date: string;
+}
+
+export function Info ({breach}: { breach: Breach }) {
 
     const exposedData = breach?.xposed_data.split(";").map((item: string) => item.trim());
 
@@ -27,7 +36,7 @@ export function Info ({breach}: { breach: any }) {
                 </div>
                 <div className="font-headland text-sm font-semibold  my-2 py-2 px-4">
                     <ul className="list-disc list-inside  marker:text-blue-600 marker:text-sm text-neutral-50">
-                        {exposedData.map((d:any, i:number) => (<li key={i}>{d}</li>))}
+                        {exposedData.map((d: string, i: number) => (<li key={i}>{d}</li>))}
                     </ul>
                 </div>
                 

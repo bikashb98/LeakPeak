@@ -2,10 +2,17 @@ import { useEffect, useState } from "react";
 import { BreachHeader } from "./BreachHeader"
 import { NotBreached } from "./NotBreached";
 import { Info } from "./Info";
-import { DateLine } from "./DateLine";
+
+interface Breach {
+    breach: string;
+    logo: string;
+    details: string;
+    xposed_data: string;
+    xposed_date: string;
+}
 
 interface BottomProps {
-    breach: any;
+    breach: Breach[];
     hasSearched: boolean;
 }
 
@@ -59,8 +66,8 @@ export function Bottom({ breach, hasSearched }: BottomProps) {
                     )}
                     
                     {breach
-                        .sort((a: any, b: any) => new Date(b.xposed_date).getTime() - new Date(a.xposed_date).getTime())
-                        .map((b: any, index: number) => (
+                        .sort((a: Breach, b: Breach) => new Date(b.xposed_date).getTime() - new Date(a.xposed_date).getTime())
+                        .map((b: Breach, index: number) => (
                         <div key={index} className="relative mb-8">
                             {/* Date circle on timeline */}
                             {showDateLine && (
