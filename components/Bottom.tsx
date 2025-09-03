@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BreachHeader } from "./BreachHeader"
 import { NotBreached } from "./NotBreached";
 import { Info } from "./Info";
+import { DateLine } from "./DateLine";
 
 interface BottomProps {
     breach: any;
@@ -11,7 +12,8 @@ interface BottomProps {
 export function Bottom({ breach, hasSearched }: BottomProps) {
     const [showBreachHeader, setShowBreachHeader] = useState(false);
     const [showNotBreached, setShowNotBreached] = useState(false);
-    const [showInfo, setShowInfo] = useState(false)
+    const [showInfo, setShowInfo] = useState(false);
+    const [showDateLine, setShowDateLine] = useState(false);
 
     useEffect(() => {
         if (hasSearched) {
@@ -19,16 +21,20 @@ export function Bottom({ breach, hasSearched }: BottomProps) {
                 setShowBreachHeader(true);
                 setShowNotBreached(false);
                 setShowInfo(true);
+                setShowDateLine(true);
             } else {
                 setShowBreachHeader(false);
                 setShowNotBreached(true);
                 setShowInfo(false);
+                setShowDateLine(false);
             }
         } else {
             // Hide both if no search has been performed yet
             setShowBreachHeader(false);
             setShowNotBreached(false);
-            setShowInfo(false)
+            setShowInfo(false);
+            setShowDateLine(false);
+
         }
     }, [breach, hasSearched]);
 
@@ -45,10 +51,34 @@ export function Bottom({ breach, hasSearched }: BottomProps) {
                     <NotBreached />
                 </div>
             )}
-            {showInfo && (<div className="mx-15 mb-20">
-                {breach.map((b: any, index: number) => ( <div key={index} className ={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}><Info key={index} breach={b} /></div> ))}
-            </div>
-        )}
+            {showInfo && (
+                <div className="mb-20 relative">
+                    {/* Continuous timeline line */}
+                    {showDateLine && (
+                        <div className="absolute left-1/2 top-0 bottom-0 w-0 border-l-2 border-blue-800 transform -translate-x-1/2"></div>
+                    )}
+                    
+                    {breach
+                        .sort((a: any, b: any) => new Date(b.xposed_date).getTime() - new Date(a.xposed_date).getTime())
+                        .map((b: any, index: number) => (
+                        <div key={index} className="relative mb-8">
+                            {/* Date circle on timeline */}
+                            {showDateLine && (
+                                <div className="absolute left-1/2 top-4 w-15 h-15 rounded-full bg-blue-800 flex items-center justify-center text-white text-sm font-bold border-2 border-blue-200 shadow-lg transform -translate-x-1/2 z-10">
+                                    {b.xposed_date}
+                                </div>
+                            )}
+                            
+                            {/* Info card positioned left or right */}
+                            <div className={`flex ${index % 2 === 0 ? "justify-start pl-8" : "justify-end pr-8"}`}>
+                                <Info breach={b} />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
+            
+       
             
             
             {/* Statistics Section - Bottom part with border */}
