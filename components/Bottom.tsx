@@ -43,7 +43,7 @@ export function Bottom({ breach, hasSearched }: BottomProps) {
             {/* Breach Header Section - Conditionally visible */}
             {showBreachHeader && (
                 <div className="w-full">
-                    <BreachHeader total={breach.length || 0} />
+                    <BreachHeader total={breach?.length || 0} />
                 </div>
             )}
             {showNotBreached && (
