@@ -1,26 +1,26 @@
 import { BellIcon } from "@heroicons/react/24/outline"
 import { Button } from "./ui/button"
-export function BreachHeader(total : {total:number}) {
+export function BreachHeader({total} : {total:number}) {
     return (
-        <div className="flex flex-col justify-center max-w-7xl font-headland mx-auto">
+        <div className="flex flex-col w-full font-headland mb-4">
             <div className="flex justify-center text-2xl font-extrabold text-slate-50">
                 Email Breach History
             </div>
             <div className="flex justify-center font-headland my-4 text-slate-500">
                 Timeline of data breaches effecting your email address
             </div>
-            <div className="flex flex-col border-2 my-4 justify-center rounded h-50 border-red-700 bg-red-300/45">
+            <div className="flex flex-col border-2 my-4 justify-center rounded h-50 border-red-700 bg-red-300/45 shadow-md">
                 <div className="flex justify-center font-extrabold text-3xl text-red-500/75">
-                    total
+                    {total}
                 </div>
                 <div className="flex justify-center py-4 font-extrabold text-3xl text-red-500/75">
                     Data Breaches
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center px-4 text-center">
                     Oh no — leaked! This email address has been found in multiple data breaches. Review the details below to see where your data was exposed.
                 </div>
             </div>
-            <div className="flex my-4 border-2 border-slate-300 h-25 rounded py-4 items-center">
+            <div className="flex my-4 border-2 border-slate-300 h-25 rounded py-4 items-center mb-25 shadow-md">
                 <div className="flex justify-between items-center w-full">
                     <div className="flex items-center">
                         <div className="flex flex-col">
