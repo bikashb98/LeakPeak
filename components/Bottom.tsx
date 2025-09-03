@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BreachHeader } from "./BreachHeader"
 import { NotBreached } from "./NotBreached";
+import { Info } from "./Info";
 
 interface BottomProps {
     breach: any;
@@ -10,20 +11,24 @@ interface BottomProps {
 export function Bottom({ breach, hasSearched }: BottomProps) {
     const [showBreachHeader, setShowBreachHeader] = useState(false);
     const [showNotBreached, setShowNotBreached] = useState(false);
+    const [showInfo, setShowInfo] = useState(false)
 
     useEffect(() => {
         if (hasSearched) {
             if (breach && breach.length > 0) {
                 setShowBreachHeader(true);
                 setShowNotBreached(false);
+                setShowInfo(true);
             } else {
                 setShowBreachHeader(false);
                 setShowNotBreached(true);
+                setShowInfo(false);
             }
         } else {
             // Hide both if no search has been performed yet
             setShowBreachHeader(false);
             setShowNotBreached(false);
+            setShowInfo(false)
         }
     }, [breach, hasSearched]);
 
@@ -40,6 +45,11 @@ export function Bottom({ breach, hasSearched }: BottomProps) {
                     <NotBreached />
                 </div>
             )}
+            {showInfo && (<div className="">
+                {breach.map((b: any, index: number) => ( <div key={index} className ={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}><Info key={index} breach={b} /></div> ))}
+            </div>
+        )}
+            
             
             {/* Statistics Section - Bottom part with border */}
             <div className="flex w-full border rounded border-blue-600 shadow-md my-5">
