@@ -2,7 +2,7 @@ import { BellIcon } from "@heroicons/react/24/outline"
 import { Button } from "./ui/button"
 export function NotBreached () {
     return (
-        <div className="flex flex-col justify-center max-w-7xl font-headland mx-auto">
+        <div className="flex flex-col justify-center full font-headland ">
             <div className="flex justify-center text-2xl font-extrabold text-slate-50">
                 Email Breach History
             </div>
@@ -20,7 +20,7 @@ export function NotBreached () {
                     Good news — no breach found! This email address wasn't found in any of the data breaches loaded into Have I Been Pwned. That's great news!.
                 </div>
             </div>
-            <div className="flex my-4 border-2 border-slate-300 h-25 rounded py-4 items-center">
+            <div className="flex my-4 border-2 border-slate-300 h-25 rounded py-4 items-center mb-25">
                 <div className="flex justify-between items-center w-full">
                     <div className="flex items-center">
                         <div className="flex flex-col">

@@ -1,16 +1,24 @@
 import { BreachHeader } from "./BreachHeader"
+import { NotBreached } from "./NotBreached";
 
 interface BottomProps {
     showBreachHeader?: boolean;
+    showNotBreached?: boolean;
 }
 
-export function Bottom({ showBreachHeader = false }: BottomProps) {
+export function Bottom({ showBreachHeader = false, showNotBreached = false }: BottomProps) {
     return (
+
         <div className="my-25 py-4 max-w-7xl mx-auto font-headland"> 
             {/* Breach Header Section - Conditionally visible */}
             {showBreachHeader && (
                 <div className="w-full">
                     <BreachHeader total={903} />
+                </div>
+            )}
+            {showNotBreached && (
+                <div className="w-full">
+                    <NotBreached />
                 </div>
             )}
             
