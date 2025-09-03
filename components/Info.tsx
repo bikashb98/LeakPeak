@@ -7,8 +7,8 @@ export function Info ({breach}: { breach: any }) {
         <div className="flex  w-md  ">
             <div className="my-4 flex flex-col w-md h-140 border rounded-md py-4 px-4 border-sky-900 shadow-md hover:shadow-sky-900/50 hover:shadow-lg hover:border-sky-700 transition-all duration-300 ease-in-out ">
                 <div className="flex w-full h-18 items-center">
-                        <div className="h-15 w-15 rounded-md relative" style={{ position: 'relative', width: '60px', height: '60px' }}>
-                            <Image
+                        <div className="h-15 w-15 rounded-md relative border shadow-lg hover:shadow-sky-900/50 border-sky-900" style={{ position: 'relative', width: '50px', height: '50px' }}>
+                            <Image className="hover:scale-110"
                                 src={breach.logo}
                                 alt={breach.breach + ' logo'}
                                 fill

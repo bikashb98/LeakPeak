@@ -45,7 +45,7 @@ export function Bottom({ breach, hasSearched }: BottomProps) {
                     <NotBreached />
                 </div>
             )}
-            {showInfo && (<div className="">
+            {showInfo && (<div className="mx-15 mb-20">
                 {breach.map((b: any, index: number) => ( <div key={index} className ={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}><Info key={index} breach={b} /></div> ))}
             </div>
         )}
